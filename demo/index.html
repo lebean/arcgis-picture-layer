@@ -1,0 +1,81 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>Intro to PictureLayer - 4.13</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/light/main.css"/>
+    <script type="text/javascript" src="https://js.arcgis.com/4.13/init.js"></script>
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <script>
+        let layers = []
+        let map, view;
+        let index = 0;
+
+        require([
+            "esri/Map",
+            "esri/views/SceneView",
+            "esri/layers/MapImageLayer",
+            "../esri/layers/PictureLayer.js"
+        ], function (Map, SceneView, MapImageLayer, PictureLayer) {
+            /**定义图层需要的属性值*/
+            let extent = {
+                xmin: 7792364.355529149,
+                ymin: -7.081154551613622E-10,
+                xmax: 1.6697923618991036E7,
+                ymax: 4865942.279503176
+            };
+            let spatialReference = {wkid: 102100, latestWkid: 3857}
+            let units = "esriMeters"
+
+            /**轮询定义20个图层，方便后面添加到地图上显示*/
+            for (let i = 1; i <= 20; i++) {
+                layers.push(new PictureLayer({
+                    visible: false,
+                    url: `./${i}.jpg`,
+                    opacity: 0.75,
+                    pictureExtent: extent,
+                    units: units,
+                    spatialReference: spatialReference
+                }))
+            }
+
+            /**添加图层到地图上*/
+            map = new Map({
+                basemap: "dark-gray",
+                layers: layers
+            });
+
+            /**间隔1.5秒切换一次图层显示设置*/
+            view = new SceneView({
+                container: "viewDiv",
+                map: map
+            });
+
+            window.setInterval('times()', 1500);
+        });
+
+        /**定时执行的方法，修改图层显示控制*/
+        function times() {
+            let len = layers.length;
+            layers.forEach(((l, i, a) => {
+                l.visible = i == index % len;
+            }))
+            index++;
+        }
+    </script>
+</head>
+
+<body>
+<div id="viewDiv"></div>
+</body>
+</html>
