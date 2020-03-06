@@ -2,6 +2,8 @@
 
 ArcGIS Picture Layer帮你实现在使用ArcGIS JavaScript API时，添加知道地理范围的图片到2D/3D地图上展示
 
+![示例图片](https://raw.githubusercontent.com/lebean/arcgis-picture-layer/master/sample.jpg)
+
 ## 部署
 
 可以把PictureLayer部署到你离线的ArcGIS JavaScript包中，如果你使用的是在线的API，那么你可以在你的Web服务器或直接在你的项目中部署。
