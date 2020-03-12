@@ -2,7 +2,7 @@
 
 ArcGIS Picture Layer帮你实现在使用ArcGIS JavaScript API时，添加知道地理范围的图片到2D/3D地图上展示
 
-![示例图片](https://raw.githubusercontent.com/lebean/arcgis-picture-layer/master/sample.jpg)
+![示例图片](https://upload-images.jianshu.io/upload_images/2510057-cf4508ab211bb8bc.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
 
 ## 部署
 
