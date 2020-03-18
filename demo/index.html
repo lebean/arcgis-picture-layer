@@ -37,17 +37,26 @@
             let spatialReference = {wkid: 102100, latestWkid: 3857}
             let units = "esriMeters"
 
+            layers.push(new PictureLayer({
+                visible: false,
+                url: 'http://10.230.124.178:8080/SATE/FY2G/IR1/2020/20200318/SAT_FY2G_GIS_IR1_PI1_20200317230000.jpg',
+                opacity: 0.75,
+                pictureExtent: extent,
+                units: units,
+                spatialReference: spatialReference
+            }))
+
             /**轮询定义20个图层，方便后面添加到地图上显示*/
-            for (let i = 1; i <= 20; i++) {
-                layers.push(new PictureLayer({
-                    visible: false,
-                    url: `./${i}.jpg`,
-                    opacity: 0.75,
-                    pictureExtent: extent,
-                    units: units,
-                    spatialReference: spatialReference
-                }))
-            }
+            // for (let i = 1; i <= 20; i++) {
+            //     layers.push(new PictureLayer({
+            //         visible: false,
+            //         url: `./${i}.jpg`,
+            //         opacity: 0.75,
+            //         pictureExtent: extent,
+            //         units: units,
+            //         spatialReference: spatialReference
+            //     }))
+            // }
 
             /**添加图层到地图上*/
             map = new Map({
@@ -61,7 +70,7 @@
                 map: map
             });
 
-            window.setInterval('times()', 1500);
+            // window.setInterval('times()', 1500);
         });
 
         /**定时执行的方法，修改图层显示控制*/
@@ -77,5 +86,6 @@
 
 <body>
 <div id="viewDiv"></div>
+<img src="http://10.230.124.178:8080/SATE/FY2G/IR1/2020/20200318/SAT_FY2G_GIS_IR1_PI1_20200317230000.jpg">
 </body>
 </html>
