@@ -170,10 +170,6 @@ require({
               };
               n.prototype.readSublayers = function(a, b, d) {
                 a = v(b.layers, d);
-                this._updateSublayersForOrigin(g.OriginId.PORTAL_ITEM, a);
-                this._updateSublayersForOrigin(g.OriginId.WEB_MAP, a);
-                this._updateSublayersForOrigin(g.OriginId.WEB_SCENE,
-                  a);
                 return a;
               };
               n.prototype.writeSublayers = function(a, b, d, f) {
@@ -1246,6 +1242,8 @@ define('require exports esri/core/tsSupport/assignHelper esri/core/tsSupport/dec
                 this.sourceJSON = c;
                 this.read(c, { origin: 'service', url: this.parsedUrl });
                 return [2];
+              default:
+                  return [2];
             }
           });
         });
