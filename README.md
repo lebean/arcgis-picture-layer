@@ -83,7 +83,7 @@ map.add(layer);
 
 ## 说明
 
-PictureLayer 基于ArcGIS JavaScript API 4.13中的MapImageLayer改造，4.14版本API应该同样适用。
+PictureLayer 基于ArcGIS JavaScript API 4.13中的MapImageLayer改造，4.15版本API同样适用。
 
 实现的详细说明来我的简书上看看吧 [扩展ArcGIS JS API中的MapImageLayer支持图片图层加载](https://www.jianshu.com/p/cc744f1ad6bb)
 
